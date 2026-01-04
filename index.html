@@ -23,14 +23,14 @@
         .input-area { display: none; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 1px dashed #38bdf8; text-align: left; width: 100%; max-width: 400px; }
         input { width: 90%; padding: 12px; margin-top: 10px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; font-family: 'Quicksand', sans-serif; }
         .quick-btn { background: #334155; color: white; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; margin: 5px 2px; }
-        .quick-btn.active { background: #38bdf8; color: #0f172a; }
         .choice-label { font-size: 14px; margin-top: 15px; color: #38bdf8; font-weight: bold; display: block; }
     </style>
 </head>
-<body>
-
-    <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+<body onclick="startFirstMusic()"> <audio id="music1" loop>
+        <source src="LINK_MP3_KITA_BERSAMA.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music2" loop>
+        <source src="LINK_MP3_SATU_SATU.mp3" type="audio/mpeg">
     </audio>
 
     <div class="scroll-container">
@@ -43,8 +43,8 @@
         <div class="section" id="s2">
             <h1>Sumpah Zah...</h1>
             <p>Gua ngerasa bersalah banget. Baru aja tadi gua <span class="highlight">senyum-senyum sendiri</span> pas lu chat di Roblox, tapi sekarang malah diambekin.</p>
-            <p>Gua gak bisa tidur Zah, rasa bersalah itu muter-muter terus di pikiran gua gara-gara telat respon ajakan mabar lu karena kerjaan.</p>
-            <p>Udah ya jangan sedih lagi, gua tetep ada kok buat lu. Gua rela gini cuma ke lu doang Zah.</p>
+            <p>Gua gak bisa tidur Zah, rasa bersalah itu muter-muter terus di pikiran gua gara-gara telat respon ajakan lu karena kerjaan.</p>
+            <p>Udah ya jangan sedih lagi, gua tetep ada kok buat lu.</p>
         </div>
 
         <div class="section" id="s3">
@@ -53,19 +53,19 @@
                 "Kalau kata Idgitaf penyanyi kesukaan lu: <span class="highlight">Sedia aku sebelum hujan...</span>"
             </div>
             <p>"Tapi kalau kata gua: <span class="highlight">Sedia aku sebelum mancing</span>, biar lu gak ngerasa sendirian lagi."</p>
-            <p>Lain kali kalau mau ajak mabar <span class="highlight">ke WA aja ya</span>, biar bunyi notifnya wkwkwk. Biar gua langsung denger dan gak telat lagi responnya.</p>
+            <p>Lain kali kalau mau ajak mabar <span class="highlight">ke WA aja ya</span>, biar bunyi notifnya wkwkwk.</p>
         </div>
 
         <div class="section" id="s4">
             <h1>Tentang Kehormatan Lu...</h1>
             <p>Gua sangat menghargai PAP lu kemarin pas ultah, tapi gua mau jaga lu juga. Lain kali kalau lu lagi gak kerudungan, <span class="highlight">mukanya disensor aja ya?</span></p>
-            <p>Bukan gua gak mau liat, tapi gua mau jaga privasi lu. Lu belum jadi milik gua tapi sedang gua siapin semuanya.</p>
+            <p>Bukan gua gak mau liat, tapi gua mau jaga privasi & kehormatan lu. Lu belum jadi milik gua tapi sedang gua siapin semuanya.</p>
         </div>
 
         <div class="section" id="s5">
             <h1>One Step Closer</h1>
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZueHg0bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/vYGUfSZ8789U4/giphy.gif" class="gif-box" style="width:180px;">
-            <p>Gua mau nulis lembaran baru bareng lu. Lu itu kado terindah dari zaman ospek sampai sekarang.</p>
+            <p>Lu itu kado terindah dari zaman ospek sampai sekarang.</p>
             
             <button class="btn" onclick="tunjukkanMisi()">Iya Isfan, Maaf Diterima 🙏</button>
 
@@ -104,8 +104,15 @@
         }, { threshold: 0.5 });
         sections.forEach(section => observer.observe(section));
 
+        function startFirstMusic() {
+            document.getElementById('music1').play();
+        }
+
         function tunjukkanMisi() {
-            document.getElementById('bgMusic').play();
+            // Ganti musik
+            document.getElementById('music1').pause();
+            document.getElementById('music2').play();
+            
             document.getElementById('giftSection').style.display = 'block';
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
@@ -121,7 +128,7 @@
             if (alamat.trim() === "") { alert("Isi dulu lokasinya ya Zah :)"); return; }
 
             const nomorWA = "6282298180077"; 
-            const pesan = `Halo Isfan, ini Zizah. Maafnya udah diterima ya! 🌸\n\nGua pilih: ${kado}\nPengirim: ${kurir}\nLokasi: ${alamat}\n\nNanti gua kabarin lagi lewat sini ya!`;
+            const pesan = `Halo Isfan, ini Zizah. Maafnya udah diterima ya! 🌸\n\nGua pilih: ${kado}\nPengirim: ${kurir}\nLokasi: ${alamat}`;
             
             window.open(`https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesan)}`, '_blank');
         }
