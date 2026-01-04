@@ -17,15 +17,16 @@
         p { max-width: 500px; font-size: 1.1rem; line-height: 1.8; color: #cbd5e1; }
         .gif-box { width: 220px; border-radius: 20px; margin: 20px 0; border: 2px solid #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
         .btn { background: #38bdf8; color: #0f172a; padding: 15px 40px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.3s; margin-top: 20px; }
-        .btn:hover { background: #0ea5e9; transform: scale(1.05); }
         .input-area { display: none; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 1px dashed #38bdf8; text-align: left; width: 100%; max-width: 400px; }
         input { width: 90%; padding: 12px; margin-top: 10px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; font-family: 'Quicksand', sans-serif; }
-        .quick-btn { background: #334155; color: white; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; margin: 5px 2px; }
+        
+        /* CSS UNTUK FEEDBACK TOMBOL */
+        .quick-btn { background: #334155; color: white; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; margin: 5px 2px; transition: 0.3s; }
+        .quick-btn.selected { background: #38bdf8; color: #0f172a; font-weight: bold; transform: scale(1.1); box-shadow: 0 0 10px #38bdf8; }
+        
         .choice-label { font-size: 14px; margin-top: 15px; color: #38bdf8; font-weight: bold; display: block; }
-        /* Style untuk Overlay Surat */
         #start-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .letter-gif { width: 150px; cursor: pointer; transition: 0.3s; }
-        .letter-gif:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
@@ -35,18 +36,13 @@
         <p style="margin-top: 20px;">Zah, ada surat buat lu..<br>(Klik suratnya ya)</p>
     </div>
 
-    <audio id="music1" loop>
-        <source src="satu-satu.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="music2" loop>
-        <source src="kita bersama.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="music1" loop><source src="satu-satu.mp3" type="audio/mpeg"></audio>
+    <audio id="music2" loop><source src="kita bersama.mp3" type="audio/mpeg"></audio>
 
     <div class="scroll-container">
         <div class="section" id="s1">
             <h1>Halo, Ratu Fish it...</h1>
-            <img src="menunggu.gif" class="gif-b">
+            <img src="menunggu.gif" class="gif-box">
             <p>Scroll pelan-pelan ya Zah...<br>Ada pesan jujur dari gua yang lagi gak bisa tidur gara-gara lu.</p>
         </div>
 
@@ -56,47 +52,40 @@
             <p>Gua gak bisa tidur Zah, rasa bersalah itu muter-muter terus di pikiran gua.</p>
         </div>
 
-        <div class="section" id="s3">
-            <h1>Sedia Aku Sebelum Mancing 🎣</h1>
-            <p>"Kalau kata Idgitaf: <span class="highlight">Sedia aku sebelum hujan...</span>"</p>
-            <p>"Tapi kalau kata gua: <span class="highlight">Sedia aku sebelum mancing</span>, biar lu gak ngerasa sendirian lagi."</p>
-        </div>
+        <div class="section" id="s3"><h1>Sedia Aku Sebelum Mancing 🎣</h1><p>"Kalau kata Idgitaf: <span class="highlight">Sedia aku sebelum hujan...</span>"</p><p>"Tapi kalau kata gua: <span class="highlight">Sedia aku sebelum mancing</span>, biar lu gak ngerasa sendirian lagi."</p></div>
 
-        <div class="section" id="s4">
-            <h1>Tentang Kehormatan Lu...</h1>
-            <p>Gua sangat menghargai PAP lu kemarin pas ultah, tapi gua mau jaga lu juga. Lain kali kalau lu lagi gak kerudungan, <span class="highlight">mukanya disensor aja ya?</span></p>
-            <p>Bukan gua gak mau liat, tapi gua mau jaga privasi & kehormatan lu.</p>
-        </div>
+        <div class="section" id="s4"><h1>Tentang Kehormatan Lu...</h1><p>Gua sangat menghargai PAP lu kemarin pas ultah, tapi gua mau jaga lu juga. Lain kali kalau lu lagi gak kerudungan, <span class="highlight">mukanya disensor aja ya?</span></p></div>
 
         <div class="section" id="s5">
             <h1>One Step Closer</h1>
             <img src="bahagia.gif" class="gif-box" style="width:180px;">
             <p>Lu itu kado terindah dari zaman ospek sampai sekarang.</p>
-            
             <button class="btn" onclick="tunjukkanMisi()">Iya Isfan, Maaf Diterima 🙏</button>
 
             <div id="giftSection" class="input-area">
                 <span class="choice-label">1. Pilih Tanda Maaf Gua:</span>
-                <div>
-                    <button type="button" class="quick-btn" onclick="setKado('Kopi Kesukaan ☕')">☕ Kopi</button>
-                    <button type="button" class="quick-btn" onclick="setKado('Boneka Panda 🐼')">🐼 Boneka</button>
+                <div id="group-kado">
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'kado', 'Kopi Kesukaan ☕')">☕ Kopi</button>
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'kado', 'Boneka Panda 🐼')">🐼 Boneka</button>
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'kado', 'Kopi + Boneka 🎁')">🎁 Kopi + Boneka</button>
                 </div>
 
                 <span class="choice-label">2. Siapa yang anter ke BBS?</span>
-                <div>
-                    <button type="button" class="quick-btn" onclick="setKurir('Abang Gojek 🛵')">🛵 Gojek</button>
-                    <button type="button" class="quick-btn" onclick="setKurir('Gua Sendiri (Isfan) 🙋‍♂️')">🙋‍♂️ Isfan</button>
+                <div id="group-kurir">
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'kurir', 'Abang Gojek 🛵')">🛵 Abang Gojek</button>
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'kurir', 'Gua Sendiri (Isfan) 🙋‍♂️')">🙋‍♂️ Gua Sendiri</button>
                 </div>
 
-                <span class="choice-label">3. Lokasi:</span>
-                <div>
-                    <button type="button" class="quick-btn" onclick="setLokasi('Indomaret BBS')">🏪 Indomaret BBS</button>
-                    <button type="button" class="quick-btn" onclick="setLokasi('Alfamart BBS')">🏪 Alfamart BBS</button>
+                <span class="choice-label">3. Lokasi Titik Jemput:</span>
+                <div id="group-lokasi">
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'lokasi', 'Indomaret BBS')">🏪 Indomaret BBS</button>
+                    <button type="button" class="quick-btn" onclick="selectItem(this, 'lokasi', 'Alfamart BBS')">🏪 Alfamart BBS</button>
                 </div>
 
-                <input type="hidden" id="pilihan_kado">
-                <input type="hidden" id="pilihan_kurir">
-                <input type="text" id="alamat" placeholder="Catatan tambahan...">
+                <input type="hidden" id="pilihan_kado" value="">
+                <input type="hidden" id="pilihan_kurir" value="">
+                <input type="hidden" id="pilihan_lokasi" value="">
+                <input type="text" id="catatan" placeholder="Catatan tambahan (opsional)...">
                 <button class="btn" style="background: #238636; color: white; width: 100%;" onclick="kirimWA()">Kirim ke Isfan 💬</button>
             </div>
         </div>
@@ -109,38 +98,49 @@
         }, { threshold: 0.5 });
         sections.forEach(section => observer.observe(section));
 
-        // Fungsi saat klik surat (Lagu 1: Satu-Satu mulai)
         function mulaiSemua() {
             document.getElementById('start-overlay').style.display = 'none';
             document.getElementById('music1').play();
         }
 
-        // Fungsi saat klik Maaf Diterima (Lagu 1 STOP, Lagu 2: Kita Bersama MULAI)
         function tunjukkanMisi() {
             const m1 = document.getElementById('music1');
             const m2 = document.getElementById('music2');
-
-            // Matikan total lagu pertama
-            m1.pause();
-            m1.currentTime = 0; 
-
-            // Putar lagu kedua
+            m1.pause(); m1.currentTime = 0;
             m2.play();
-            
             document.getElementById('giftSection').style.display = 'block';
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
-        function setKado(val) { document.getElementById('pilihan_kado').value = val; }
-        function setKurir(val) { document.getElementById('pilihan_kurir').value = val; }
-        function setLokasi(val) { document.getElementById('alamat').value = val; }
+        // FUNGSI UNTUK MEMBERIKAN TANDA PADA TOMBOL YANG DIKLIK
+        function selectItem(element, category, value) {
+            // Hapus kelas 'selected' dari semua tombol di grup yang sama
+            const parent = element.parentElement;
+            const buttons = parent.querySelectorAll('.quick-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            
+            // Tambahkan kelas 'selected' ke tombol yang baru diklik
+            element.classList.add('selected');
+            
+            // Simpan nilainya ke hidden input
+            if(category === 'kado') document.getElementById('pilihan_kado').value = value;
+            if(category === 'kurir') document.getElementById('pilihan_kurir').value = value;
+            if(category === 'lokasi') document.getElementById('pilihan_lokasi').value = value;
+        }
 
         function kirimWA() {
             const kado = document.getElementById('pilihan_kado').value;
             const kurir = document.getElementById('pilihan_kurir').value;
-            const alamat = document.getElementById('alamat').value;
+            const lokasi = document.getElementById('pilihan_lokasi').value;
+            const catatan = document.getElementById('catatan').value;
+
+            if (!kado || !kurir || !lokasi) {
+                alert("Zah, pilih kado, pengirim, sama lokasinya dulu yaa biar gua gak bingung :)");
+                return;
+            }
+
             const nomorWA = "6282298180077"; 
-            const pesan = `Halo Isfan, ini Zizah. Maafnya udah diterima! 🌸\n\nGua pilih: ${kado}\nPengirim: ${kurir}\nLokasi: ${alamat}`;
+            const pesan = `Halo Isfan, ini zizah. Maafnya udah diterima! 🌸\n\nGua pilih: ${kado}\nPengirim: ${kurir}\nLokasi: ${lokasi}\nCatatan: ${catatan || '-'}`;
             window.open(`https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesan)}`, '_blank');
         }
     </script>
