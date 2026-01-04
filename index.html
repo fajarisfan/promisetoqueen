@@ -15,15 +15,16 @@
         .section.active { opacity: 1; transform: translateY(0); }
         h1 { color: #38bdf8; font-size: 2.2rem; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
         p { max-width: 500px; font-size: 1.1rem; line-height: 1.8; color: #cbd5e1; }
-        .gif-box { width: 250px; border-radius: 15px; margin: 20px 0; border: 2px solid #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+        .gif-box { width: 220px; border-radius: 20px; margin: 20px 0; border: 2px solid #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
         .quote { font-style: italic; border-left: 4px solid #fb7185; padding: 10px 20px; background: rgba(255, 255, 255, 0.05); border-radius: 0 10px 10px 0; text-align: left; }
         .highlight { color: #fb7185; font-weight: bold; }
         .btn { background: #38bdf8; color: #0f172a; padding: 15px 40px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.3s; margin-top: 20px; }
         .btn:hover { background: #0ea5e9; transform: scale(1.05); }
         .input-area { display: none; margin-top: 30px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 1px dashed #38bdf8; text-align: left; width: 100%; max-width: 400px; }
         input { width: 90%; padding: 12px; margin-top: 10px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; font-family: 'Quicksand', sans-serif; }
-        .quick-btn { background: #334155; color: white; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; margin: 5px 2px; transition: 0.2s; }
-        .quick-btn:hover { background: #38bdf8; color: #0f172a; }
+        .quick-btn { background: #334155; color: white; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; margin: 5px 2px; }
+        .quick-btn.active { background: #38bdf8; color: #0f172a; }
+        .choice-label { font-size: 14px; margin-top: 15px; color: #38bdf8; font-weight: bold; display: block; }
     </style>
 </head>
 <body>
@@ -35,13 +36,15 @@
     <div class="scroll-container">
         <div class="section" id="s1">
             <h1>Halo, Peri Kecil...</h1>
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueGZueXF4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/JIX9t2j0ZTN9S/giphy.gif" class="gif-box">
-            <p>Scroll pelan-pelan ya Zah...<br>Ada pesan dari gua yang lagi ngerasa bersalah banget hari ini.</p>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnV2eHBudmF0azJ3bnF4ejR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/EatwJZRf3oJC0/giphy.gif" class="gif-box">
+            <p>Scroll pelan-pelan ya Zah...<br>Ada pesan jujur dari gua yang lagi gak bisa tidur gara-gara lu.</p>
         </div>
 
         <div class="section" id="s2">
-            <p>Gua mau minta maaf soal kemarin. Pas lu ngajak mabar tapi gua malah sibuk sama kerjaan karna lelaki itu keharusan dalam bekerja. Ngerasa berdosa banget bikin lu sampe pengen 'sendiri' di server fish it Roblox.</p>
-            <p>Janji ya Zah, jangan ilang lagi... gua rela gini cuma ke lu doang. Gua gak butuh validasi dunia, gua cuma butuh lu bahagia.</p>
+            <h1>Sumpah Zah...</h1>
+            <p>Gua ngerasa bersalah banget. Baru aja tadi gua <span class="highlight">senyum-senyum sendiri</span> pas lu chat di Roblox, tapi sekarang malah diambekin.</p>
+            <p>Gua gak bisa tidur Zah, rasa bersalah itu muter-muter terus di pikiran gua gara-gara telat respon ajakan mabar lu karena kerjaan.</p>
+            <p>Udah ya jangan sedih lagi, gua tetep ada kok buat lu. Gua rela gini cuma ke lu doang Zah.</p>
         </div>
 
         <div class="section" id="s3">
@@ -50,34 +53,46 @@
                 "Kalau kata Idgitaf penyanyi kesukaan lu: <span class="highlight">Sedia aku sebelum hujan...</span>"
             </div>
             <p>"Tapi kalau kata gua: <span class="highlight">Sedia aku sebelum mancing</span>, biar lu gak ngerasa sendirian lagi."</p>
+            <p>Lain kali kalau mau ajak mabar <span class="highlight">ke WA aja ya</span>, biar bunyi notifnya wkwkwk. Biar gua langsung denger dan gak telat lagi responnya.</p>
         </div>
 
         <div class="section" id="s4">
             <h1>Tentang Kehormatan Lu...</h1>
             <p>Gua sangat menghargai PAP lu kemarin pas ultah, tapi gua mau jaga lu juga. Lain kali kalau lu lagi gak kerudungan, <span class="highlight">mukanya disensor aja ya?</span></p>
-            <p>Bukan gua gak mau liat, tapi gua mau jaga privasi & kehormatan lu. Lu belum jadi milik gua tapi sedang gua siapin semuanya.</p>
+            <p>Bukan gua gak mau liat, tapi gua mau jaga privasi lu. Lu belum jadi milik gua tapi sedang gua siapin semuanya.</p>
         </div>
 
         <div class="section" id="s5">
             <h1>One Step Closer</h1>
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpueXJ3NHB6eHh4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/MDJ9IbM2YiUzE9URKz/giphy.gif" style="width:150px; border-radius:10px; margin-bottom:10px;">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZueHg0bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4bnR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/vYGUfSZ8789U4/giphy.gif" class="gif-box" style="width:180px;">
             <p>Gua mau nulis lembaran baru bareng lu. Lu itu kado terindah dari zaman ospek sampai sekarang.</p>
-            <p>Sebagai permintaan maaf, gua mau kirim boneka biar ada yang nemenin lu pas gua gada.</p>
             
             <button class="btn" onclick="tunjukkanMisi()">Iya Isfan, Maaf Diterima 🙏</button>
 
             <div id="giftSection" class="input-area">
-                <p style="font-size: 14px; color: #38bdf8; font-weight: bold;">Misi Pengiriman Boneka:</p>
-                
+                <span class="choice-label">1. Pilih Tanda Maaf Gua:</span>
                 <div style="margin-bottom: 10px;">
-                    <button type="button" class="quick-btn" onclick="setAlamat('Titip Indomaret Terdekat')">🏪 Indomaret</button>
-                    <button type="button" class="quick-btn" onclick="setAlamat('Titip Alfamart Terdekat')">🏪 Alfamart</button>
-                    <button type="button" class="quick-btn" onclick="setAlamat('Sekitaran PCI')">📍 PCI</button>
-                    <button type="button" class="quick-btn" onclick="setAlamat('Sekitaran Cilegon Kota')">📍 Kota</button>
+                    <button type="button" class="quick-btn" onclick="setKado('Kopi Kesukaan Lu ☕')">☕ Kopi</button>
+                    <button type="button" class="quick-btn" onclick="setKado('Boneka Panda 🐼')">🐼 Boneka</button>
+                    <button type="button" class="quick-btn" onclick="setKado('Kopi + Boneka 🎁')">🎁 Paket Lengkap</button>
                 </div>
 
-                <input type="text" id="alamat" placeholder="Tulis alamat atau detail di sini...">
-                <button class="btn" style="background: #238636; color: white; width: 100%;" onclick="kirimWA()">Kirim ke Isfan 💬</button>
+                <span class="choice-label">2. Siapa yang anter ke BBS?</span>
+                <div style="margin-bottom: 10px;">
+                    <button type="button" class="quick-btn" onclick="setKurir('Abang Gojek 🛵')">🛵 Abang Gojek</button>
+                    <button type="button" class="quick-btn" onclick="setKurir('Gua Sendiri (Isfan) 🙋‍♂️')">🙋‍♂️ Gua Sendiri</button>
+                </div>
+                
+                <span class="choice-label">3. Lokasi Titik Jemput:</span>
+                <div style="margin-bottom: 10px;">
+                    <button type="button" class="quick-btn" onclick="setLokasi('Indomaret BBS')">🏪 Indomaret BBS</button>
+                    <button type="button" class="quick-btn" onclick="setLokasi('Alfamart BBS')">🏪 Alfamart BBS</button>
+                </div>
+
+                <input type="hidden" id="pilihan_kado" value="Belum pilih kado">
+                <input type="hidden" id="pilihan_kurir" value="Belum pilih kurir">
+                <input type="text" id="alamat" placeholder="Tulis detail catatan di sini...">
+                <button class="btn" style="background: #238636; color: white; width: 100%;" onclick="kirimWA()">Kirim Pesan ke Isfan 💬</button>
             </div>
         </div>
     </div>
@@ -95,25 +110,20 @@
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
-        function setAlamat(val) {
-            document.getElementById('alamat').value = val;
-        }
+        function setKado(val) { document.getElementById('pilihan_kado').value = val; }
+        function setKurir(val) { document.getElementById('pilihan_kurir').value = val; }
+        function setLokasi(val) { document.getElementById('alamat').value = val; }
 
         function kirimWA() {
+            const kado = document.getElementById('pilihan_kado').value;
+            const kurir = document.getElementById('pilihan_kurir').value;
             const alamat = document.getElementById('alamat').value;
-            if (alamat.trim() === "") {
-                alert("Isi dulu lokasinya ya Zah :)");
-                return;
-            }
+            if (alamat.trim() === "") { alert("Isi dulu lokasinya ya Zah :)"); return; }
 
-            // GANTI NOMOR DI BAWAH INI DENGAN NOMOR WA KAMU (Gunakan kode negara 62)
-            const nomorWA = "082298180077"; 
-            const pesan = `Halo Isfan, ini hazizah. Maafnya udah diterima ya! 🌸\n\nUntuk bonekanya, bisa dikirim ke: ${alamat}\n\nKabarin ya kalau mau mabar lagi! 🎣`;
+            const nomorWA = "6282298180077"; 
+            const pesan = `Halo Isfan, ini Zah. Maafnya udah diterima ya! 🌸\n\nGua pilih: ${kado}\nPengirim: ${kurir}\nLokasi: ${alamat}\n\nNanti gua kabarin lagi lewat sini ya!`;
             
-            const linkWA = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesan)}`;
-            
-            alert('Makasih ya Zah! Kamu akan diarahkan ke WhatsApp gua untuk konfirmasi lokasinya.');
-            window.open(linkWA, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesan)}`, '_blank');
         }
     </script>
 </body>
